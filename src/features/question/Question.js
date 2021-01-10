@@ -7,6 +7,7 @@ import {
 } from './questionSlice';
 import styles from './Question.module.css';
 import states from '../../states.json';
+import Flag from './Flag';
 
 const Question = () => {
   const { answer, options } = useSelector(selectQuestion);
@@ -26,21 +27,14 @@ const Question = () => {
       <Flag state={answer} />
       <ul className={styles.choices}>
         {
-        options.map((option, i) => (
-          <li key={i} id={i} onClick={choice} className={styles.choice}>{states[option]}</li>
-        ))
-      }
+          options.map((option, i) => (
+            <li key={i} id={i} onClick={choice} className={styles.choice}>{states[option]}</li>
+          ))
+        }
       </ul>
     </div>
   );
 };
 
-const Flag = (props) => {
-  const {
-    state
-  } = props;
-
-  return (<img className={styles.flag} alt='Which flag is this?' src={`/flags/${state.toLowerCase()}.svg`} />);
-};
 export default Question;
 // vim:ft=javascriptreact
