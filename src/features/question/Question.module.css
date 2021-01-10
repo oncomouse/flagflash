@@ -1,0 +1,25 @@
+.choices {
+  list-style: none;
+  padding: 0;
+}
+
+.choice {
+  cursor: pointer;
+  border: 1px solid gray;
+  padding: var(--box-padding);
+  margin: var(--box-margin);
+}
+
+.choice:hover {
+  background: var(--color-hover-bg);
+}
+
+.answer {
+  font-weight: bold;
+}
+
+.flag {
+  max-width: 95%;
+  margin: auto;
+  display: block;
+}
