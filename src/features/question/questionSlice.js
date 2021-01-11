@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Random, MersenneTwister19937 } from 'random-js';
 import states from '../../states.json';
 import { correct, incorrect } from '../score/scoreSlice';
+
+const random = new Random(MersenneTwister19937.autoSeed());
 
 const NUM_CHOICES = 5;
 
@@ -11,7 +14,7 @@ function getRandom (arr, n) {
   const taken = new Array(len);
   if (n > len) { throw new RangeError('getRandom: more elements taken than available'); }
   while (n--) {
-    const x = Math.floor(Math.random() * len);
+    const x = Math.floor(random.real(0, 1) * len);
     result[n] = arr[x in taken ? taken[x] : x];
     taken[x] = --len in taken ? taken[len] : len;
   }
@@ -25,7 +28,7 @@ function shuffle (array) {
   // While there remain elements to shuffle...
   while (currentIndex !== 0) {
     // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
+    randomIndex = Math.floor(random.real(0, 1) * currentIndex);
     currentIndex -= 1;
 
     // And swap it with the current element.
