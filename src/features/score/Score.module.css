@@ -1,3 +1,21 @@
+.score {
+  padding: var(--box-padding);
+  margin: var(--box-margin);
+}
+
 .score__correct:after {
   content: "/";
+}
+
+.answer {
+  margin: var(--box-margin);
+  padding: var(--box-padding);
+}
+
+.answer--correct {
+  background: var(--color-correct-bg);
+}
+
+.answer--incorrect {
+  background: var(--color-incorrect-bg);
 }

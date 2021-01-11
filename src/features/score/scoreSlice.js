@@ -21,10 +21,7 @@ export const scoreSlice = createSlice({
 });
 
 export const selectScore = state => [state.score.correct, state.score.total];
-export const selectLastAnswer = state => ({
-  correct: state.score.lastAnswer,
-  answer: state.question.history.length === 0 ? null : state.question.history[0]
-});
+export const selectLastAnswerState = state => state.score.lastAnswer;
 
 export const { correct, incorrect } = scoreSlice.actions;
 export default scoreSlice.reducer;

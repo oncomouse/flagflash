@@ -20,6 +20,6 @@
 
 .flag {
   max-width: 95%;
-  margin: auto;
+  margin: var(--flag-margin);
   display: block;
 }

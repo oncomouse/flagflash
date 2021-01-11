@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import states from '../../states.json';
 import { correct, incorrect } from '../score/scoreSlice';
 
+const NUM_CHOICES = 5;
+
 // Source: https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
 function getRandom (arr, n) {
   const result = new Array(n);
@@ -39,7 +41,7 @@ export const questionSlice = createSlice({
   name: 'question',
   initialState: {
     answer: null,
-    options: [null, null, null],
+    options: Array(NUM_CHOICES).map(() => null),
     history: []
   },
   reducers: {
@@ -47,7 +49,7 @@ export const questionSlice = createSlice({
       if (state.answer !== null) {
         state.history.unshift(state.answer);
       }
-      const s = getRandom(Object.keys(states), 3);
+      const s = getRandom(Object.keys(states), NUM_CHOICES);
       state.answer = s[0];
       state.options = shuffle(s.slice());
     }
@@ -60,6 +62,8 @@ export const selectQuestion = state => ({
   answer: state.question.answer,
   options: state.question.options
 });
+
+export const selectLastAnswer = state => state.question.history.length === 0 ? null : state.question.history[0];
 
 export const checkAnswer = choice => (dispatch, getState) => {
   const { answer, options } = getState().question;

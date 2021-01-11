@@ -2,8 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {
   selectScore,
-  selectLastAnswer
+  selectLastAnswerState
 } from './scoreSlice';
+import {
+  selectLastAnswer
+} from '../question/questionSlice';
 import styles from './Score.module.css';
 import states from '../../states.json';
 
@@ -25,7 +28,8 @@ const Score = () => {
 };
 
 const LastAnswer = () => {
-  const { correct, answer } = useSelector(selectLastAnswer);
+  const correct = useSelector(selectLastAnswerState);
+  const answer = useSelector(selectLastAnswer);
   if (correct === null) {
     return (<div />);
   }

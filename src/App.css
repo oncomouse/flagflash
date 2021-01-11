@@ -1,17 +1,20 @@
 :root {
   --container-max-width: 650px;
-  --font: "Helvetica";
+  --font: "Noto Sans", sans-serif;
+  --font-size: 22px;
   --color-foreground: #000;
   --color-background: #fff;
   --color-hover-bg: #aeadaf;
   --color-correct-bg: #6da280;
   --color-incorrect-bg: #d58888;
-  --box-padding: 5px;
-  --box-margin: 5px 0;
+  --box-padding: 0.25rem;
+  --box-margin: 0.25rem 0;
+  --flag-margin: 1.5rem auto 1.5rem auto;
 }
 
 html {
   font-family: var(--font);
+  font-size: var(--font-size);
 }
 
 .container {
