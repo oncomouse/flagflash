@@ -7,9 +7,12 @@ const Flag = (props) => {
 
   const [icon, setIcon] = useState('');
 
-  useEffect(async () => {
-    const importedIcon = await import(`../../flags/${state.toLowerCase()}.svg`);
-    setIcon(importedIcon.default);
+  useEffect(() => {
+    const getFlag = async () => {
+      const importedIcon = await import(`../../flags/${state.toLowerCase()}.svg`);
+      setIcon(importedIcon.default);
+    };
+    getFlag();
   }, [state]);
 
   return (<img src={icon} alt='Which Flag is this?' className={styles.flag} />);
