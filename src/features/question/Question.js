@@ -28,13 +28,19 @@ const Question = () => {
       <ul className={styles.choices}>
         {
           options.map((option, i) => (
-            <li key={i} id={i} onClick={choice} className={styles.choice}>{states[option]}</li>
+            <Answer states={states} option={option} key={i} id={i} onClick={choice} className={styles.choice} />
           ))
         }
       </ul>
     </div>
   );
 };
+
+const has = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
+
+const Answer = ({ states, option, ...props }) => has(states, option) ? (
+  <li {...props}>{states[option]}</li>
+) : (null);
 
 export default Question;
 // vim:ft=javascriptreact
