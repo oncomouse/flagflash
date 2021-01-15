@@ -1,2 +1,0 @@
-(this.webpackJsonpflagflash=this.webpackJsonpflagflash||[]).push([[62],{281:function(s,a,t){"use strict";t.r(a),a.default=t.p+"static/media/wv.499eed71.svg"}}]);
-//# sourceMappingURL=62.4cf26efd.chunk.js.map
